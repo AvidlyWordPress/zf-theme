@@ -70,8 +70,11 @@ function zf_scripts() {
 	wp_enqueue_style( 'animate.css' );
 	wp_enqueue_style( 'zf-theme-style', get_stylesheet_directory_uri() . '/style' . $suffix . '.css', array(), $version );
 
+	// Enqueue Foundation (this is the full foundation, for production you should slim it down)
+	wp_enqueue_script( 'zf-foundation', get_stylesheet_directory_uri() . '/assets/js/foundation.min.js', array( 'jquery' ), $version, true );
+
 	// Enqueue scripts.
-	wp_enqueue_script( 'zf-theme-scripts', get_template_directory_uri() . '/assets/js/project' . $suffix . '.js', array( 'jquery' ), $version, true );
+	wp_enqueue_script( 'zf-theme-scripts', get_template_directory_uri() . '/assets/js/project' . $suffix . '.js', array( 'zf-foundation' ), $version, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
