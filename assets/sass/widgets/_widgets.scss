@@ -3,16 +3,10 @@
 //--------------------------------------------------------------
 
 .widget {
-	margin: 0 0 rem(24);
+	margin: rem-calc(0 0 24 0);
 
 	// Make sure select elements fit in widgets
 	select {
 		max-width: 100%;
 	}
-}
-
-// Search widget
-
-.widget_search .search-submit {
-	display: none;
 }
