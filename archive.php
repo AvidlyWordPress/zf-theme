@@ -9,7 +9,6 @@
 
 get_header(); ?>
 
-	<div class="wrap">
 		<div class="primary content-area">
 			<main id="main" class="site-main" role="main">
 
@@ -32,7 +31,7 @@ get_header(); ?>
 					 * If you want to override this in a child theme, then include a file
 					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 					 */
-					get_template_part( 'template-parts/content', get_post_format() );
+					get_template_part( 'template-parts/content', get_post_type() );
 
 				endwhile;
 
@@ -48,7 +47,5 @@ get_header(); ?>
 		</div><!-- .primary -->
 
 		<?php get_sidebar(); ?>
-
-	</div><!-- .wrap -->
 
 <?php get_footer(); ?>

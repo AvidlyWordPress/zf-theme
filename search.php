@@ -9,7 +9,6 @@
 
 get_header(); ?>
 
-	<div class="wrap">
 		<section class="primary content-area">
 			<main id="main" class="site-main" role="main">
 
@@ -45,7 +44,5 @@ get_header(); ?>
 		</section><!-- .primary -->
 
 		<?php get_sidebar(); ?>
-
-	</div><!-- .wrap -->
 
 <?php get_footer(); ?>

@@ -14,13 +14,11 @@
 	</div><!-- #content -->
 
 	<footer class="site-footer">
-		<div class="wrap">
 
 			<div class="site-info">
 				<?php zf_do_copyright_text(); ?>
 			</div>
 
-		</div><!-- .wrap -->
 	</footer><!-- .site-footer -->
 </div><!-- #page -->
 

@@ -26,10 +26,9 @@
 <body <?php body_class(); ?>>
 <span class="svg-defs"><?php zf_include_svg_icons(); ?></span>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'zf-theme' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'zf-theme' ); ?></a>
 
-	<header class="site-header">
-		<div class="wrap">
+	<header id="masthead" class="site-header" role="banner">
 
 			<div class="site-branding">
 				<?php if ( is_front_page() && is_home() ) : ?>
@@ -54,7 +53,6 @@
 				?>
 			</nav><!-- #site-navigation -->
 
-		</div><!-- .wrap -->
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

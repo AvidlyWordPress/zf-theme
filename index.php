@@ -14,7 +14,6 @@
 
 get_header(); ?>
 
-	<div class="wrap">
 		<div class="primary content-area">
 			<main id="main" class="site-main" role="main">
 
@@ -53,7 +52,5 @@ get_header(); ?>
 		</div><!-- .primary -->
 
 		<?php get_sidebar(); ?>
-
-	</div><!-- .wrap -->
 
 <?php get_footer(); ?>
