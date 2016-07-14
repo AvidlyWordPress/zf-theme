@@ -1,0 +1,34 @@
+//--------------------------------------------------------------
+// Accessibility
+//--------------------------------------------------------------
+
+// Hide text meant only for screen readers
+
+.screen-reader-text {
+	clip: rect(rem-calc(1), rem-calc(1), rem-calc(1), rem-calc(1));
+	height: rem-calc(1);
+  width: rem-calc(1);
+	overflow: hidden;
+	position: absolute !important;
+
+	&:hover,
+	&:active,
+	&:focus {
+    height: auto;
+    width: auto;
+		background-color: $body-background;
+		border-radius: $global-radius;
+		box-shadow: 0 0 rem-calc(2) rem-calc(2) rgba($black, 0.6);
+		clip: auto !important;
+		color: $body-font-color;
+		display: block;
+		font-size: rem-calc(14);
+		font-weight: 700;
+		left: rem-calc(5);
+		line-height: normal;
+		padding: rem-calc(15 23 14);
+		text-decoration: none;
+		top: rem-calc(5);
+		z-index: 100000; // Above WP toolbar
+	}
+}

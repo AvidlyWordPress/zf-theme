@@ -61,6 +61,7 @@ Bo-Yi Wu (https://github.com/appleboy/), Nicolas Gallagher (https://github.com/n
 @include foundation-visibility-classes;
 @include foundation-float-classes;
 
+@import "base/index";
 @import "modules/index";
 @import "plugins/index";
 @import "views/index";
