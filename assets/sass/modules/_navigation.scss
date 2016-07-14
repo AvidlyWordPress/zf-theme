@@ -1,3 +1,25 @@
 //--------------------------------------------------------------
 // Navigation
 //--------------------------------------------------------------
+
+
+/* Small menu */
+.menu-toggle {
+	display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .menu-toggle .icon {
+    height: rem-calc(16);
+    width: rem-calc(16);
+  }
+
+	.menu-toggle,
+	.main-navigation.toggled .nav-menu {
+		display: block;
+	}
+
+	.main-navigation ul {
+		display: none;
+	}
+}
