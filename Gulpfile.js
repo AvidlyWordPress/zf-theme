@@ -1,5 +1,6 @@
 // Require our dependencies
 var autoprefixer = require('autoprefixer');
+var babel = require('gulp-babel');
 var browserSync = require('browser-sync');
 var cheerio = require('gulp-cheerio');
 var concat = require('gulp-concat');
@@ -31,8 +32,20 @@ var paths = {
 	images: ['assets/images/*', '!assets/images/*.svg'],
 	php: ['./*.php', './**/*.php'],
 	sass: 'assets/sass/**/*.scss',
+	foundation_scripts: [
+		'node_modules/foundation-sites/js/foundation.core.js',
+		'node_modules/foundation-sites/js/foundation.util.mediaQuery.js',
+		'node_modules/foundation-sites/js/foundation.util.keyboard.js',
+		'node_modules/foundation-sites/js/foundation.util.box.js',
+		'node_modules/foundation-sites/js/foundation.util.triggers.js',
+		'node_modules/foundation-sites/js/foundation.util.dropdown.js'
+	],
 	concat_scripts: 'assets/js/concat/*.js',
-	scripts: ['node_modules/foundation-sites/dist/foundation.js', 'assets/js/*.js', '!assets/js/*.min.js', '!assets/js/customizer.js'],
+	scripts: [
+		'assets/js/*.js',
+		'!assets/js/*.min.js',
+		'!assets/js/customizer.js'
+	],
 	sprites: 'assets/images/sprites/*.png'
 };
 
@@ -209,12 +222,26 @@ gulp.task('spritesmith', ['clean:sprites'], function() {
 });
 
 /**
+ * Process foundation script separately using babel
+ */
+gulp.task('foundation', function() {
+    return gulp.src(paths.foundation_scripts)
+		.pipe(sourcemaps.init())
+		.pipe(babel({
+		    presets: ['es2015']
+		}))
+		.pipe(concat('foundation.js'))
+		.pipe(sourcemaps.write('.'))
+		.pipe(gulp.dest('assets/js/concat'))
+});
+
+/**
  * Concatenate javascripts after they're clobbered.
  * https://www.npmjs.com/package/gulp-concat
  */
-gulp.task('concat', function() {
+gulp.task('concat', ['foundation'], function() {
 	return gulp.src(paths.concat_scripts)
-	.pipe(plumber({ errorHandler: handleErrors }))
+	// .pipe(plumber({ errorHandler: handleErrors }))
 	.pipe(sourcemaps.init())
 	.pipe(concat('project.js'))
 	.pipe(sourcemaps.write())
