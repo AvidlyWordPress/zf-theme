@@ -1,0 +1,56 @@
+//--------------------------------------------------------------
+// Navigation
+//--------------------------------------------------------------
+
+/* =Post Navigation
+----------------------------------------------- */
+.nav-links {
+	max-width: $global-width;
+	margin: 0 auto 1.5em auto;
+	overflow: hidden;
+	padding: $global-padding 0;
+}
+.nav-previous {
+	float: left;
+	width: 50%;
+
+	a:before {
+		content: "\00ab";
+		margin-right: $global-margin;
+		font-size: 1.5rem;
+		line-height: 1rem;
+	}
+}
+.nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+
+	a:after {
+		content: "\00bb";
+		margin-left: $global-margin;
+		font-size: 1.5rem;
+		line-height: 1rem;
+	}
+}
+
+/* Small menu */
+.menu-toggle {
+	display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .menu-toggle .icon {
+    height: rem-calc(16);
+    width: rem-calc(16);
+  }
+
+	.menu-toggle,
+	.main-navigation.toggled .nav-menu {
+		display: block;
+	}
+
+	.main-navigation ul {
+		display: none;
+	}
+}

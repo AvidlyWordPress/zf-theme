@@ -7,7 +7,7 @@
  * @author Daniel Koskinen
  * @version 1.2
  **/
-function zf_section_nav( $args = array() ) {
+function zf_theme_section_nav( $args = array() ) {
 
 		global $post;
 

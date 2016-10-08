@@ -7,8 +7,8 @@
  * Make the admin bar play nicely with Foundation, thanks to Kirsten at
  * http://foundation.zurb.com/forum/posts/1744-the-wordpress-admin-bar-getting-it-to-play-nice-with-foundation-5
  */
-add_action('wp_head', 'zf_foundation_adminbar_styles');
-function zf_foundation_adminbar_styles() {
+add_action('wp_head', 'zf_theme_foundation_adminbar_styles');
+function zf_theme_foundation_adminbar_styles() {
     if ( is_admin_bar_showing() ) {?>
         <style>
         .top-bar{ margin-top: 32px; }
@@ -28,15 +28,15 @@ function zf_foundation_adminbar_styles() {
  * @param array $attr Attributes of the shortcode.
  * @return string HTML content to display gallery.
  */
-add_filter( 'post_gallery', 'zf_foundation_gallery_shortcode', 10, 2 );
-function zf_foundation_gallery_shortcode($defaults = '', $attr) {
+add_filter( 'post_gallery', 'zf_theme_foundation_gallery_shortcode', 10, 2 );
+function zf_theme_foundation_gallery_shortcode($defaults = '', $attr) {
     global $post;
 
     static $instance = 0;
     $instance++;
 
     // Allow plugins/themes to override the default gallery template.
-    $output = apply_filters('zf_post_gallery', '', $attr);
+    $output = apply_filters('zf_theme_post_gallery', '', $attr);
     if ( $output != '' )
         return $output;
 
@@ -140,10 +140,10 @@ function zf_foundation_gallery_shortcode($defaults = '', $attr) {
 }
 
 /**
- * Filter video oembeds and wrap with Foundations flex-video
+ * Filter video oembeds and wrap with Foundation's flex-video
  */
-add_filter('embed_oembed_html', 'zf_foundation_embed_oembed_html', 99, 4);
-function zf_foundation_embed_oembed_html( $html, $url, $attr, $post_id ) {
+add_filter('embed_oembed_html', 'zf_theme_foundation_embed_oembed_html', 99, 4);
+function zf_theme_foundation_embed_oembed_html( $html, $url, $attr, $post_id ) {
 
     $matches = array(
             'youtube.com',
@@ -159,3 +159,27 @@ function zf_foundation_embed_oembed_html( $html, $url, $attr, $post_id ) {
     return $html;
 
 }
+
+/**
+ * Create HTML list of nav menu items.
+ *
+ * @since 3.0.0
+ * @uses Walker
+ */
+class Foundation_Dropdown_Nav_Menu extends Walker_Nav_Menu {
+
+    /**
+     * Starts the list before the elements are added.
+     *
+     * @see Walker::start_lvl()
+     *
+     * @param string $output Passed by reference. Used to append additional content.
+     * @param int    $depth  Depth of menu item. Used for padding.
+     * @param array  $args   An array of arguments. @see wp_nav_menu()
+     */
+    public function start_lvl( &$output, $depth = 0, $args = array() ) {
+        $indent = str_repeat("\t", $depth);
+        $output .= "\n$indent<ul class=\"menu\">\n";
+    }
+
+} // Walker_Nav_Menu

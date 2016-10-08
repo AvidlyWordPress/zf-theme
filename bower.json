@@ -1,26 +1,13 @@
 {
-  "name": "_s",
-  "description": "A theme boilerplate for WebDevStudios.",
+  "name": "foundation-ssg",
   "version": "1.0.0",
-  "keywords": [
-    "css",
-    "js",
-    "sass",
-    "mobile-first",
-    "responsive",
-    "front-end",
-    "framework",
-    "web",
-    "wordpress"
+  "authors": [
+    "ZURB <foundation@zurb.com>"
   ],
-  "homepage": "http://webdevstudios.com",
-  "main": [
-    "sass/style.scss",
-    "style.css"
-  ],
+  "description": "Static site generator for Foundation for Sites.",
+  "main": "gulpfile.js",
+  "license": "MIT",
   "ignore": [
-    ".jshintrc",
-    "**/*.txt",
     "**/.*",
     "node_modules",
     "bower_components",
@@ -28,5 +15,8 @@
     "tests"
   ],
   "dependencies": {
-  }
+    "foundation-sites": "~6.2.3",
+    "motion-ui": "~1.2.2"
+  },
+  "private": true
 }

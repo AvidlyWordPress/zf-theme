@@ -7,7 +7,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package ZF Theme
+ * @package ZF_Theme
  */
 
 /*

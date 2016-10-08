@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package ZF Theme
+ * @package ZF_Theme
  */
 
 /**
@@ -13,18 +13,10 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
-function zf_body_classes( $classes ) {
-
-	global $is_IE;
-
-	// If it's IE, add a class.
-	if ( $is_IE ) {
-		$classes[] = 'ie';
-	}
-
-	// Give all pages a unique class.
-	if ( is_page() ) {
-		$classes[] = 'page-' . basename( get_permalink() );
+function zf_theme_body_classes( $classes ) {
+	// Adds a class of group-blog to blogs with more than 1 published author.
+	if ( is_multi_author() ) {
+		$classes[] = 'group-blog';
 	}
 
 	// Adds a class of hfeed to non-singular pages.
@@ -32,14 +24,16 @@ function zf_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
-	// Adds a class of group-blog to blogs with more than 1 published author.
-	if ( is_multi_author() ) {
-		$classes[] = 'group-blog';
-	}
-
-	// Adds "no-js" class. If JS is enabled, this will be replaced (by javascript) to "js".
-	$classes[] = 'no-js';
-
 	return $classes;
 }
-add_filter( 'body_class', 'zf_body_classes' );
+add_filter( 'body_class', 'zf_theme_body_classes' );
+
+/**
+ * Add a pingback url auto-discovery header for singularly identifiable articles.
+ */
+function zf_theme_pingback_header() {
+	if ( is_singular() && pings_open() ) {
+		echo '<link rel="pingback" href="', bloginfo( 'pingback_url' ), '">';
+	}
+}
+add_action( 'wp_head', 'zf_theme_pingback_header' );
