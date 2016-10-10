@@ -294,9 +294,9 @@ class Foundation_Dropdown_Nav_Menu extends Walker_Nav_Menu {
 
         $item_output = $args->before;
         if ( in_array( 'menu-item-has-children', $item->classes ) ) {
-            $item_output .= '<span><a'. $attributes .'>';
+            $item_output .= '<span class="menu-item-link"><a'. $attributes .'>';
             $item_output .= $args->link_before . $title . $args->link_after;
-            $item_output .= '</a></span><a href="#" class="toggle"></a>';
+            $item_output .= '</a></span><a href="#" class="menu-item-toggle"></a>';
         } else {
             $item_output .= '<a'. $attributes .'>';
             $item_output .= $args->link_before . $title . $args->link_after;

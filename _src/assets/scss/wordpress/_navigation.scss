@@ -6,16 +6,20 @@
 ----------------------------------------------- */
 .main-navigation {
 	.menu-item {
-		span {
+		.menu-item-link a {
 			padding: $menu-item-padding;
 			display: inline-block;
 			line-height: 1rem;
 		}
-		.toggle {
+		.menu-item-toggle {
 			display: inline;
 			float: right;
 			height: rem-calc(38);
 		}
+	}
+
+	.is-accordion-submenu {
+		padding-left: $global-padding;
 	}
 
 	@include breakpoint(medium) {
