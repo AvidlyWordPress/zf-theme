@@ -1,45 +1,70 @@
-[![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
+# ZF Theme
 
-_s
-===
+Hi. I'm a starter theme called <em>ZF Theme</em>, which stands for either <a href="http://zeelandfamily.fi">Zeeland Family</a> or <a href="foundation.zurb.com">Zurb Foundation</a>, whichever you prefer. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
 
-Hi. I'm a starter theme called `_s`, or `underscores`, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+My structure is 95% the same as _s by Automattic, but I integrate the <a href="http://foundation.zurb.com/sites/docs/starter-projects.html">Foundation Zurb Template</a>.
 
-My ultra-minimal CSS might make me look like theme tartare but that means less stuff to get in your way when you're designing your awesome theme. Here are some of the other more interesting things you'll find here:
+Learn more about the Foundation framework by reading the <a href="http://foundation.zurb.com/sites/docs/">Foundation docs</a>.
 
 * A just right amount of lean, well-commented, modern, HTML5 templates.
 * A helpful 404 template.
-* A custom header implementation in `inc/custom-header.php` just add the code snippet found in the comments of `inc/custom-header.php` to your `header.php` template.
-* Custom template tags in `inc/template-tags.php` that keep your templates clean and neat and prevent code duplication.
+* A custom header implementation in `functions/custom-header.php` just add the code snippet found in the comments of `inc/custom-header.php` to your `header.php` template.
+* Custom template tags in `functions/template-tags.php` that keep your templates clean and neat and prevent code duplication.
 * Some small tweaks in `inc/extras.php` that can improve your theming experience.
-* A script at `js/navigation.js` that makes your menu a toggled dropdown on small screens (like your phone), ready for CSS artistry. It's enqueued in `functions.php`.
-* 2 sample CSS layouts in `layouts/` for a sidebar on either side of your content.
-* Smartly organized starter CSS in `style.css` that will help you to quickly get your design off the ground.
+* The Foundation Framework (version 6.2) using the Foundation Zurb Template in the `_src` directory. 
 * Licensed under GPLv2 or later. :) Use it to make something cool.
 
-Getting Started
----------------
+## Getting Started
 
-If you want to keep it simple, head over to http://underscores.me and generate your `_s` based theme from there. You just input the name of the theme you want to create, click the "Generate" button, and you get your ready-to-awesomize starter theme.
+To personalise your theme, download `zf-theme` from GitHub. The first thing you want to do is copy the `zf-theme` directory and change the name to something else (like, say, `megatherium`), and then you'll need to do a five-step find and replace on the name in all the templates.
 
-If you want to set things up manually, download `_s` from GitHub. The first thing you want to do is copy the `_s` directory and change the name to something else (like, say, `megatherium`), and then you'll need to do a five-step find and replace on the name in all the templates.
-
-1. Search for `'_s'` (inside single quotations) to capture the text domain.
-2. Search for `_s_` to capture all the function names.
-3. Search for `Text Domain: _s` in style.css.
-4. Search for <code>&nbsp;_s</code> (with a space before it) to capture DocBlocks.
-5. Search for `_s-` to capture prefixed handles.
+1. Search for `'zf-theme'` (inside single quotations) to capture the text domain.
+2. Search for `zf-theme_` to capture all the function names.
+3. Search for `Text Domain: zf-theme` in style.css.
+4. Search for <code>&nbsp;zf-theme</code> (with a space before it) to capture DocBlocks.
+5. Search for `zf-theme-` to capture prefixed handles.
 
 OR
 
-* Search for: `'_s'` and replace with: `'megatherium'`
-* Search for: `_s_` and replace with: `megatherium_`
-* Search for: `Text Domain: _s` and replace with: `Text Domain: megatherium` in style.css.
-* Search for: <code>&nbsp;_s</code> and replace with: <code>&nbsp;Megatherium</code>
-* Search for: `_s-` and replace with: `megatherium-`
+* Search for: `'zf-theme'` and replace with: `'megatherium'`
+* Search for: `zf-theme_` and replace with: `megatherium_`
+* Search for: `Text Domain: zf-theme` and replace with: `Text Domain: megatherium` in style.css.
+* Search for: <code>&nbsp;zf-theme</code> and replace with: <code>&nbsp;Megatherium</code>
+* Search for: `zf-theme-` and replace with: `megatherium-`
 
 Then, update the stylesheet header in `style.css` and the links in `footer.php` with your own information. Next, update or delete this readme.
 
-Now you're ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme. :)
+There are two routes you can take for development, depending on whether you like Sass, Gulp and friends:
 
-Good luck!
+## Development using CSS (without Sass or Gulp)
+
+If you're not into Sass or Gulp, just delete the _src directory and remove the comment from the beginning of this line in `functions/scripts-and-styles.php`:
+
+		// wp_enqueue_style( 'zf-theme-custom-style', get_stylesheet_uri() );
+
+You can then add your own custom styles into `style.css`.
+
+It is highly recommended that you create a custom version of the Foundation JS & CSS using the <a href="http://foundation.zurb.com/sites/docs/style-sherpa.html">online configurator</a> so you have only what you need and nothing else. This will save users' bandwidth, time, batteries, money, headaches and reduce CO2 emissions. If you do this however, you need to do a couple of things after extracting the custom download:
+
+* Move `css/foundation.min.css` from the custom package into `dist/assets/css/` and rename it to `app.css`.
+* Move `js/vendor/foundation.min.js` from the custom package into `dist/assets/js/` and rename it to `app.js`.
+
+If you have any custom JS, I suggest creating a new file in `dist/assets/js` and enqueuing it the usual way in `functions/scripts-and-styles.php`.
+
+## Development using Sass, Gulp and Panini templates
+
+Requirements: Node, NPM and Bower. And a local WordPress development server (MAMP, XAMPP, Pressmatic, something else, it's your choice).
+
+Set up a local WordPress development site, and take note of its URL, e.g. 'example.dev'. Drop your theme in the themes directory and activate it. Edit `config.yml` and make sure the BROWSERSYNC options point to the right URL. This is also where you change options regarding which Foundation (and other) JS files should be concatenated, how the autoprefixer works etc.
+
+Run `npm install && bower install` in your theme directory. Go make a cup of tea while this is happening. Then run `npm start` and start developing!
+
+### Developing HTML mockups without a WordPress installation
+
+If you prefer to start development by building HTML mockups, you can build your templates in `_src/pages` and `_src/partials` and change the BROWSERSYNC type setting in `config.yml` to 'html'. Browsersync will start up a simple static file server at localhost:8000 and refresh every time you make a change to your Sass, JS or HTML template files. The benefit of this is you can get going faster without the overhead of a WP site running locally, and it's easier to include front-end devs in your team who might not have a local server setup or WordPress experience.
+
+Read more about the Panini template language in the <a href="http://foundation.zurb.com/sites/docs/panini.html">Panini docs on the Foundation site</a>.
+
+### Styleguides!
+
+You can build a styleguide within your theme in `_src/styleguide/`, extremely handy when passing on development to new theme members. <a href="http://foundation.zurb.com/sites/docs/style-sherpa.html">Instructions for how to edit the styleguide on the Foundation site</a>.
