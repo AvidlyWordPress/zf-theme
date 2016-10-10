@@ -1,12 +1,17 @@
 # Your project's server will run on localhost:xxxx at this port
 PORT: 8000
 
+# Change the below type value to 'html' if you want to develop using static HTML mockups
+BROWSERSYNC:
+  type: 'wordpress'
+  url: 'zf-theme.dev'
+
 # Autoprefixer will make sure your CSS works with these browsers
 COMPATIBILITY:
   - "last 2 versions"
   - "ie >= 9"
 
-# UnCSS will use these settings
+# UnCSS will use these settings. UnCSS is not used by default!
 UNCSS_OPTIONS:
   html:
     - "_src/**/*.html"

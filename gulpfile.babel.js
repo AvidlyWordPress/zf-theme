@@ -17,7 +17,7 @@ const $ = plugins();
 const PRODUCTION = !!(yargs.argv.production);
 
 // Load settings from settings.yml
-const { COMPATIBILITY, PORT, UNCSS_OPTIONS, PATHS } = loadConfig();
+const { COMPATIBILITY, BROWSERSYNC, PORT, UNCSS_OPTIONS, PATHS } = loadConfig();
 
 function loadConfig() {
   let ymlFile = fs.readFileSync('config.yml', 'utf8');
@@ -129,9 +129,20 @@ function images() {
 
 // Start a server with BrowserSync to preview the site in
 function server(done) {
-  browser.init({
-    server: PATHS.dist, port: PORT
-  });
+  if(BROWSERSYNC.type == 'wordpress') {
+    browser.init({
+      open: true,
+      injectChanges: true,
+      proxy: BROWSERSYNC.url,
+      port: PORT,
+    });
+  } else {
+    browser.init({
+      open: true,
+      port: PORT,
+      server: PATHS.dist,
+    });
+  }
   done();
 }
 
