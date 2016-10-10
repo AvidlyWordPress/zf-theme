@@ -15,8 +15,6 @@ function zf_theme_scripts() {
 
 	wp_enqueue_script( 'zf-theme-app-js', $asset_directory . '/js/app.js', array('jquery'), $version, true );
 
-	wp_enqueue_script( 'zf-theme-navigation', $asset_directory . '/wp-js/navigation.js', array(), '20151215', true );
-
 	wp_enqueue_script( 'zf-theme-skip-link-focus-fix', $asset_directory . '/wp-js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

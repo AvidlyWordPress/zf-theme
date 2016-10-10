@@ -2,6 +2,28 @@
 // Navigation
 //--------------------------------------------------------------
 
+/* =Main Navigation
+----------------------------------------------- */
+.main-navigation {
+	.menu-item {
+		span {
+			padding: $menu-item-padding;
+			display: inline-block;
+			line-height: 1rem;
+		}
+		.toggle {
+			display: inline;
+			float: right;
+			height: rem-calc(38);
+		}
+	}
+
+	@include breakpoint(medium) {
+		position: static;
+	}
+}
+
+
 /* =Post Navigation
 ----------------------------------------------- */
 .nav-links {
@@ -31,26 +53,5 @@
 		margin-left: $global-margin;
 		font-size: 1.5rem;
 		line-height: 1rem;
-	}
-}
-
-/* Small menu */
-.menu-toggle {
-	display: none;
-}
-
-@media screen and (max-width: 600px) {
-  .menu-toggle .icon {
-    height: rem-calc(16);
-    width: rem-calc(16);
-  }
-
-	.menu-toggle,
-	.main-navigation.toggled .nav-menu {
-		display: block;
-	}
-
-	.main-navigation ul {
-		display: none;
 	}
 }

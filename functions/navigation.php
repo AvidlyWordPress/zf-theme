@@ -69,7 +69,6 @@ function zf_theme_section_nav( $args = array() ) {
 			'exclude' => $exclude_list,
 			'link_before' => $link_before,
 			'link_after' => $link_after,
-			// 'walker' => new zf_Walker_Page( $menu_class . '__', $top_page )
 			));
 
 		if( !$children ) return false; 	//if there are no pages in this section, leave the function

@@ -41,15 +41,18 @@
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'zf-theme' ); ?></button>
-			<?php wp_nav_menu( array(
-					'theme_location' => 'primary',
-					'menu_id' => 'primary-menu',
-					'menu_class' => 'dropdown menu',
-		            'items_wrap' => '<ul id="%1$s" class="%2$s" data-dropdown-menu>%3$s</ul>',
-		            'container' => false,
-		            'walker' => new Foundation_Dropdown_Nav_Menu
-				) ); ?>
+			<div class="title-bar" data-responsive-toggle="primary-menu" data-hide-for="medium">
+				<button class="menu-icon" type="button" data-toggle></button>
+				<div class="title-bar-title"><?php esc_html_e( 'Menu', 'zf-theme' ) ?></div>
+			</div>
+			<?php 	wp_nav_menu( array(
+						'theme_location' => 'primary',
+						'menu_id' => 'primary-menu',
+						'menu_class' => 'vertical medium-horizontal dropdown menu',
+						'items_wrap' => '<ul id="%1$s" class="%2$s" data-responsive-menu="accordion medium-dropdown">%3$s</ul>',
+						'container' => false,
+						'walker' => new Foundation_Dropdown_Nav_Menu
+					) ); ?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
