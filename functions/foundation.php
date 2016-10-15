@@ -161,15 +161,14 @@ function zf_theme_foundation_embed_oembed_html( $html, $url, $attr, $post_id ) {
 }
 
 /**
- * Create HTML list of nav menu items.
+ * Walker class to add Foundation classes to nav menus
  *
- * @since 3.0.0
- * @uses Walker
+ * @uses Walker_Nav_Menu
  */
 class Foundation_Dropdown_Nav_Menu extends Walker_Nav_Menu {
 
     /**
-     * Starts the list before the elements are added.
+     * Add the 'vertical' class to child menus
      *
      * @see Walker::start_lvl()
      *
@@ -183,12 +182,9 @@ class Foundation_Dropdown_Nav_Menu extends Walker_Nav_Menu {
     }
 
     /**
-     * Start the element output.
+     * Modify the individual menu items
      *
      * @see Walker::start_el()
-     *
-     * @since 3.0.0
-     * @since 4.4.0 'nav_menu_item_args' filter was added.
      *
      * @param string $output Passed by reference. Used to append additional content.
      * @param object $item   Menu item data object.
@@ -213,30 +209,20 @@ class Foundation_Dropdown_Nav_Menu extends Walker_Nav_Menu {
          */
         $args = apply_filters( 'nav_menu_item_args', $args, $item, $depth );
 
+        // Add the foundation 'active' class to current menu items
+        // TODO: deal with current-menu-ancestor somehow, needs custom styling
+        if ( in_array( 'current-menu-item', $classes ) ) {
+            $classes[] = 'active';
+        }
+
         /**
          * Filter the CSS class(es) applied to a menu item's list item element.
-         *
-         * @since 3.0.0
-         * @since 4.1.0 The `$depth` parameter was added.
-         *
-         * @param array  $classes The CSS classes that are applied to the menu item's `<li>` element.
-         * @param object $item    The current menu item.
-         * @param array  $args    An array of {@see wp_nav_menu()} arguments.
-         * @param int    $depth   Depth of menu item. Used for padding.
          */
         $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth ) );
         $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
         /**
          * Filter the ID applied to a menu item's list item element.
-         *
-         * @since 3.0.1
-         * @since 4.1.0 The `$depth` parameter was added.
-         *
-         * @param string $menu_id The ID that is applied to the menu item's `<li>` element.
-         * @param object $item    The current menu item.
-         * @param array  $args    An array of {@see wp_nav_menu()} arguments.
-         * @param int    $depth   Depth of menu item. Used for padding.
          */
         $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args, $depth );
         $id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
@@ -251,21 +237,6 @@ class Foundation_Dropdown_Nav_Menu extends Walker_Nav_Menu {
 
         /**
          * Filter the HTML attributes applied to a menu item's anchor element.
-         *
-         * @since 3.6.0
-         * @since 4.1.0 The `$depth` parameter was added.
-         *
-         * @param array $atts {
-         *     The HTML attributes applied to the menu item's `<a>` element, empty strings are ignored.
-         *
-         *     @type string $title  Title attribute.
-         *     @type string $target Target attribute.
-         *     @type string $rel    The rel attribute.
-         *     @type string $href   The href attribute.
-         * }
-         * @param object $item  The current menu item.
-         * @param array  $args  An array of {@see wp_nav_menu()} arguments.
-         * @param int    $depth Depth of menu item. Used for padding.
          */
         $atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args, $depth );
 
@@ -281,18 +252,14 @@ class Foundation_Dropdown_Nav_Menu extends Walker_Nav_Menu {
         $title = apply_filters( 'the_title', $item->title, $item->ID );
 
         /**
-         * Filter a menu item's title.
-         *
-         * @since 4.4.0
-         *
-         * @param string $title The menu item's title.
-         * @param object $item  The current menu item.
-         * @param array  $args  An array of {@see wp_nav_menu()} arguments.
-         * @param int    $depth Depth of menu item. Used for padding.
+         * Apply the core filter for a menu item's title
          */
         $title = apply_filters( 'nav_menu_item_title', $title, $item, $args, $depth );
 
         $item_output = $args->before;
+
+        // Wrap menu-item and dropdown toggle in a separate element to enable
+        // clicking top level links on touch devices
         if ( in_array( 'menu-item-has-children', $item->classes ) ) {
             $item_output .= '<span class="menu-item-link"><a'. $attributes .'>';
             $item_output .= $args->link_before . $title . $args->link_after;
@@ -306,17 +273,6 @@ class Foundation_Dropdown_Nav_Menu extends Walker_Nav_Menu {
 
         /**
          * Filter a menu item's starting output.
-         *
-         * The menu item's starting output only includes `$args->before`, the opening `<a>`,
-         * the menu item's title, the closing `</a>`, and `$args->after`. Currently, there is
-         * no filter for modifying the opening and closing `<li>` for a menu item.
-         *
-         * @since 3.0.0
-         *
-         * @param string $item_output The menu item's starting HTML output.
-         * @param object $item        Menu item data object.
-         * @param int    $depth       Depth of menu item. Used for padding.
-         * @param array  $args        An array of {@see wp_nav_menu()} arguments.
          */
         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
     }
