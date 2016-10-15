@@ -61,10 +61,10 @@ Run `npm install && bower install` in your theme directory. Go make a cup of tea
 
 ### Developing HTML mockups without a WordPress installation
 
-If you prefer to start development by building HTML mockups, you can build your templates in `_src/pages` and `_src/partials` and change the BROWSERSYNC type setting in `config.yml` to 'html'. Browsersync will start up a simple static file server at localhost:8000 and refresh every time you make a change to your Sass, JS or HTML template files. The benefit of this is you can get going faster without the overhead of a WP site running locally, and it's easier to include front-end devs in your team who might not have a local server setup or WordPress experience.
+If you prefer to start development by building HTML mockups, you can build your templates in `_src/pages` and `_src/partials` and change the BROWSERSYNC type setting in `config.yml` to `html`. Browsersync will start up a simple static file server at localhost:8000 and refresh every time you make a change to your Sass, JS or HTML template files. The benefit of this is you can get going faster without the overhead of a WP site running locally, and it's easier to include front-end devs in your team who might not have a local server setup or WordPress experience.
 
 Read more about the Panini template language in the <a href="http://foundation.zurb.com/sites/docs/panini.html">Panini docs on the Foundation site</a>.
 
 ### Styleguides!
 
-You can build a styleguide within your theme in `_src/styleguide/`, extremely handy when passing on development to new theme members. <a href="http://foundation.zurb.com/sites/docs/style-sherpa.html">Instructions for how to edit the styleguide on the Foundation site</a>.
+You can build a styleguide within your theme in `_src/styleguide/`, extremely handy when passing on development to new theme members. <a href="http://foundation.zurb.com/sites/docs/style-sherpa.html">Instructions for how to edit the styleguide on the Foundation site</a>. The BROWSERSYNC value in `config.yml` needs to be set to `html` and you can view your guide at `localhost:8000/styleguide.html`. 
