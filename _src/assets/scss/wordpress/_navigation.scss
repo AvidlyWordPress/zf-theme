@@ -6,10 +6,17 @@
 ----------------------------------------------- */
 .main-navigation {
 	.menu-item {
-		.menu-item-link a {
-			padding: $menu-item-padding;
+
+		// A customisation to Foundation's regular
+		// menu structure, allows clicking top level link
+		.menu-item-link {
 			display: inline-block;
-			line-height: 1rem;
+
+			a {
+				padding: $menu-item-padding;
+				display: inline-block;
+				line-height: 1rem;
+			}
 		}
 		.menu-item-toggle {
 			display: inline;
@@ -18,12 +25,32 @@
 		}
 	}
 
+	.active {
+		.menu-item-link > a {
+			color: $menu-item-color-active;
+			background: $menu-item-background-active;
+		}
+		.menu-item-toggle {
+			background: transparent;
+		}
+	}
+
 	.is-accordion-submenu {
 		padding-left: $global-padding;
 	}
 
-	@include breakpoint(medium) {
-		position: static;
+	.dropdown.menu.medium-horizontal > li.is-dropdown-submenu-parent > a {
+		padding-right: 1.2em;
+		&:after {
+			right: 13px;
+		}
+
+		@include breakpoint(large) {
+			padding-right: 1.5em;
+			&:after {
+				right: 15px;
+			}
+		}
 	}
 }
 
