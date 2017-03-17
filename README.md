@@ -59,6 +59,10 @@ Set up a local WordPress development site, and take note of its URL, e.g. 'examp
 
 Run `npm install && bower install` in your theme directory. Go make a cup of tea while this is happening. Then run `npm start` and start developing!
 
+### Compiling assets for production
+
+Run `npm run build` to compile compressed, production-ready CSS and JS.
+
 ### Developing HTML mockups without a WordPress installation
 
 If you prefer to start development by building HTML mockups, you can build your templates in `_src/pages` and `_src/partials` and change the BROWSERSYNC type setting in `config.yml` to `html`. Browsersync will start up a simple static file server at localhost:8000 and refresh every time you make a change to your Sass, JS or HTML template files. The benefit of this is you can get going faster without the overhead of a WP site running locally, and it's easier to include front-end devs in your team who might not have a local server setup or WordPress experience.
