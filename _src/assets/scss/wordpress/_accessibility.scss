@@ -10,6 +10,7 @@
   width: rem-calc(1);
 	overflow: hidden;
 	position: absolute !important;
+	word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
 
 	&:hover,
 	&:active,

@@ -57,6 +57,9 @@ function zf_theme_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+
+	// Add theme support for selective refresh for widgets.
+	add_theme_support( 'customize-selective-refresh-widgets' );
 }
 endif;
 add_action( 'after_setup_theme', 'zf_theme_setup' );
