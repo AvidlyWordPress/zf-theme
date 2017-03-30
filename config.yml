@@ -10,6 +10,7 @@ BROWSERSYNC:
 COMPATIBILITY:
   - "last 2 versions"
   - "ie >= 9"
+  - "ios >= 7"
 
 # UnCSS will use these settings. UnCSS is not used by default!
 UNCSS_OPTIONS:
@@ -38,7 +39,7 @@ PATHS:
   javascript:
     # Libraries requried by Foundation
     # - "bower_components/jquery/dist/jquery.js"
-    - "bower_components/what-input/what-input.js"
+    - "bower_components/what-input/dist/what-input.js"
     # Core Foundation files
     - "bower_components/foundation-sites/js/foundation.core.js"
     - "bower_components/foundation-sites/js/foundation.util.*.js"
@@ -63,6 +64,7 @@ PATHS:
     - "bower_components/foundation-sites/js/foundation.tabs.js"
     - "bower_components/foundation-sites/js/foundation.toggler.js"
     - "bower_components/foundation-sites/js/foundation.tooltip.js"
+    - "bower_components/foundation-sites/js/foundation.zf.responsiveAccordionTabs.js"
     # Paths to your own project code are here
     - "_src/assets/js/!(app).js"
     - "_src/assets/js/app.js"
