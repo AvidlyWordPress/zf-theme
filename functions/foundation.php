@@ -259,6 +259,9 @@ class Foundation_Dropdown_Nav_Menu extends Walker_Nav_Menu {
 
 		// Wrap menu-item and dropdown toggle in a separate element to enable
 		// clicking top level links on touch devices
+		if ( ! is_array( $item->classes ) ) {
+			$item->classes = array( $item->classes );
+		}
 		if ( in_array( 'menu-item-has-children', $item->classes ) ) {
 			$item_output .= '<span class="menu-item-link"><a'. $attributes .'>';
 			$item_output .= $args->link_before . $title . $args->link_after;

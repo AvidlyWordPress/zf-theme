@@ -51,6 +51,7 @@
 						'menu_class' => 'vertical medium-horizontal dropdown menu',
 						'items_wrap' => '<ul id="%1$s" class="%2$s" data-responsive-menu="accordion medium-dropdown">%3$s</ul>',
 						'container' => false,
+						'fallback_cb' => false,
 						'walker' => new Foundation_Dropdown_Nav_Menu
 					) ); ?>
 		</nav><!-- #site-navigation -->
