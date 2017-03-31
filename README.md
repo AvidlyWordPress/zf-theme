@@ -8,9 +8,9 @@ Learn more about the Foundation framework by reading the <a href="http://foundat
 
 * A just right amount of lean, well-commented, modern, HTML5 templates.
 * A helpful 404 template.
-* A custom header implementation in `functions/custom-header.php` just add the code snippet found in the comments of `inc/custom-header.php` to your `header.php` template.
+* A custom header implementation in `functions/custom-header.php` just add the code snippet found in the comments of `functions/custom-header.php` to your `header.php` template.
 * Custom template tags in `functions/template-tags.php` that keep your templates clean and neat and prevent code duplication.
-* Some small tweaks in `inc/extras.php` that can improve your theming experience.
+* Some small tweaks in `functions/extras.php` that can improve your theming experience.
 * The Foundation Framework (version 6.3) using the Foundation Zurb Template in the `_src` directory. 
 * Licensed under GPLv2 or later. :) Use it to make something cool.
 
