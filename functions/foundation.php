@@ -23,7 +23,10 @@ function zf_theme_foundation_adminbar_styles() {
 /**
  * The Modified Gallery shortcode.
  *
- * Adds foundation block-grid classes to the gallery
+ * Adds foundation block-grid classes to the gallery. 
+ * NOTE: This uses the XY grid classes as documented here http://foundation.zurb.com/sites/docs/xy-grid.html#block-grids
+ * If you don't use the XY grid you will either need to edit this function or remove the filter altogether, which will revert to the 
+ * regular WordPress gallery markup.
  *
  * @param array $attr Attributes of the shortcode.
  * @return string HTML content to display gallery.
@@ -212,7 +215,7 @@ function zf_theme_foundation_gallery_shortcode( $defaults = '', $attr ) {
 	$small_columns = $columns > 2 ? 2 : $columns;
 	$medium_columns = $columns > 4 ? 4 : $columns;
 
-	$gallery_div = "<div class=\"gallery-wrap\"><ul id='$selector' class='no-bullet row small-up-{$small_columns} medium-up-{$medium_columns} large-up-{$columns} gallery galleryid-{$id} gallery-size-{$size_class}'>";
+	$gallery_div = "<div class=\"gallery-wrap\"><ul id='$selector' class='no-bullet grid-x grid-padding-x small-up-{$small_columns} medium-up-{$medium_columns} large-up-{$columns} gallery galleryid-{$id} gallery-size-{$size_class}'>";
 	$output = "\n\t\t" . $gallery_div;
 
 	$i = 0;
@@ -230,7 +233,7 @@ function zf_theme_foundation_gallery_shortcode( $defaults = '', $attr ) {
 
 //        $aria_labelledby = $has_caption ? " aria-labelledby='img-caption-{$attachment->ID}'" : '';
 
-		$output .= "<{$itemtag} class='column column-block gallery-item'>";
+		$output .= "<{$itemtag} class='cell gallery-item'>";
 		$output .= "
 				$link
 		";
