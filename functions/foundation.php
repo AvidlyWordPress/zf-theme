@@ -266,7 +266,7 @@ function zf_theme_foundation_embed_oembed_html( $html, $url, $attr, $post_id ) {
 
 	foreach ( $matches as $match ) {
 		if ( false !== stripos( $url, $match ) )
-			return '<div class="flex-video">' . $html . '</div>';
+			return '<div class="responsive-embed">' . $html . '</div>';
 	}
 
 	return $html;
