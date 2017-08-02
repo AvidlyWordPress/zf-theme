@@ -1,6 +1,6 @@
 # ZF Theme
 
-Hi. I'm a starter theme called <em>ZF Theme</em>, which stands for either <a href="http://zeelandfamily.fi">Zeeland Family</a> or <a href="foundation.zurb.com">Zurb Foundation</a>, whichever you prefer. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+Hi. I'm a starter theme called <em>ZF Theme</em>, which stands for either <a href="http://zeelandfamily.fi">Zeeland Family</a> or <a href="https://foundation.zurb.com">Zurb Foundation</a>, whichever you prefer. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
 
 My structure is 95% the same as _s by Automattic, but I integrate the <a href="http://foundation.zurb.com/sites/docs/starter-projects.html">Foundation Zurb Template</a>.
 
