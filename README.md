@@ -19,17 +19,17 @@ Learn more about the Foundation framework by reading the <a href="http://foundat
 To personalise your theme, download `zf-theme` from GitHub. The first thing you want to do is copy the `zf-theme` directory and change the name to something else (like, say, `megatherium`), and then you'll need to do a five-step find and replace on the name in all the templates.
 
 1. Search for `'zf-theme'` (inside single quotations) to capture the text domain.
-2. Search for `zf-theme_` to capture all the function names.
+2. Search for `zf_theme_` to capture all the function names.
 3. Search for `Text Domain: zf-theme` in style.css.
-4. Search for <code>&nbsp;zf-theme</code> (with a space before it) to capture DocBlocks.
+4. Search for <code>&nbsp;ZF_Theme</code> (with a space before it) to capture DocBlocks.
 5. Search for `zf-theme-` to capture prefixed handles.
 
 OR
 
 * Search for: `'zf-theme'` and replace with: `'megatherium'`
-* Search for: `zf-theme_` and replace with: `megatherium_`
+* Search for: `zf_theme_` and replace with: `megatherium_`
 * Search for: `Text Domain: zf-theme` and replace with: `Text Domain: megatherium` in style.css.
-* Search for: <code>&nbsp;zf-theme</code> and replace with: <code>&nbsp;Megatherium</code>
+* Search for: <code>&nbsp; ZF_Theme</code> (with a space before it) and replace with: <code>&nbsp;Megatherium</code>
 * Search for: `zf-theme-` and replace with: `megatherium-`
 
 Then, update the stylesheet header in `style.css` and the links in `footer.php` with your own information. Next, update or delete this readme.
