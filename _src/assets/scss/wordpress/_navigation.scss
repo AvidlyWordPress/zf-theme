@@ -13,7 +13,7 @@
 			display: inline-block;
 
 			a {
-				padding: $menu-item-padding;
+				padding: $menu-items-padding;
 				display: inline-block;
 				line-height: 1rem;
 			}
@@ -25,7 +25,7 @@
 		}
 	}
 
-	.active {
+	.is-active {
 		.menu-item-link > a {
 			color: $menu-item-color-active;
 			background: $menu-item-background-active;
