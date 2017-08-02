@@ -319,9 +319,9 @@ class Foundation_Dropdown_Nav_Menu extends Walker_Nav_Menu {
 		 */
 		$args = apply_filters( 'nav_menu_item_args', $args, $item, $depth );
 
-		// Add the foundation 'active' class to current menu items
+		// Add the foundation 'is-active' class to current menu items
 		if ( in_array( 'current-menu-item', $classes ) || in_array( 'current-menu-ancestor', $classes ) ) {
-			$classes[] = 'active';
+			$classes[] = 'is-active';
 		}
 
 		/**
