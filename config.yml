@@ -41,6 +41,7 @@ PATHS:
     # - "bower_components/jquery/dist/jquery.js"
     - "bower_components/what-input/dist/what-input.js"
     # Core Foundation files
+    # - "bower_components/foundation-sites/dist/js/foundation.js"
     - "bower_components/foundation-sites/dist/js/plugins/foundation.core.js"
     - "bower_components/foundation-sites/dist/js/plugins/foundation.util.*.js"
     # Individual Foundation components
@@ -53,6 +54,7 @@ PATHS:
     - "bower_components/foundation-sites/dist/js/plugins/foundation.dropdownMenu.js"
     - "bower_components/foundation-sites/dist/js/plugins/foundation.equalizer.js"
     - "bower_components/foundation-sites/dist/js/plugins/foundation.interchange.js"
+    - "bower_components/foundation-sites/dist/js/plugins/foundation.smoothScroll.js"
     - "bower_components/foundation-sites/dist/js/plugins/foundation.magellan.js"
     - "bower_components/foundation-sites/dist/js/plugins/foundation.offcanvas.js"
     - "bower_components/foundation-sites/dist/js/plugins/foundation.orbit.js"
