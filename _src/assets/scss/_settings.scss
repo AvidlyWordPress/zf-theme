@@ -95,6 +95,7 @@ $global-menu-nested-margin: 1rem;
 $global-text-direction: ltr;
 $global-flexbox: true;
 $global-prototype-breakpoints: false;
+$global-button-cursor: auto;
 $global-color-pick-contrast-tolerance: 0;
 $print-transparent-backgrounds: true;
 
@@ -331,7 +332,7 @@ $card-border: 1px solid $light-gray;
 $card-shadow: none;
 $card-border-radius: $global-radius;
 $card-padding: $global-padding;
-$card-margin: $global-margin;
+$card-margin-bottom: $global-margin;
 
 // 15. Close Button
 // ----------------
@@ -477,6 +478,7 @@ $menu-icon-spacing: 0.25rem;
 $menu-item-background-hover: $light-gray;
 $menu-state-back-compat: true;
 $menu-centered-back-compat: true;
+$menu-icons-back-compat: true;
 
 // 24. Meter
 // ---------
@@ -491,8 +493,12 @@ $meter-fill-bad: $alert-color;
 // 25. Off-canvas
 // --------------
 
-$offcanvas-size: 250px;
-$offcanvas-vertical-size: 250px;
+$offcanvas-sizes: (
+  small: 250px,
+);
+$offcanvas-vertical-sizes: (
+  small: 250px,
+);
 $offcanvas-background: $light-gray;
 $offcanvas-shadow: 0 0 10px rgba($black, 0.7);
 $offcanvas-inner-shadow-size: 20px;
@@ -553,10 +559,10 @@ $progress-radius: $global-radius;
 // -------------------
 
 $prototype-arrow-directions: (
-    down,
-    up,
-    right,
-    left
+  down,
+  up,
+  right,
+  left
 );
 $prototype-arrow-size: 0.4375rem;
 $prototype-arrow-color: $black;
@@ -584,11 +590,11 @@ $prototype-border-color: $medium-gray;
 
 $prototype-display-breakpoints: $global-prototype-breakpoints;
 $prototype-display: (
-    inline,
-    inline-block,
-    block,
-    table,
-    table-cell
+  inline,
+  inline-block,
+  block,
+  table,
+  table-cell
 );
 
 // 34. Prototype Font-Styling
@@ -604,18 +610,18 @@ $prototype-font-bold: $global-weight-bold;
 
 $prototype-list-breakpoints: $global-prototype-breakpoints;
 $prototype-style-type-unordered: (
-    disc,
-    circle,
-    square
+  disc,
+  circle,
+  square
 );
 $prototype-style-type-ordered: (
-    decimal,
-    lower-alpha,
-    lower-latin,
-    lower-roman,
-    upper-alpha,
-    upper-latin,
-    upper-roman
+  decimal,
+  lower-alpha,
+  lower-latin,
+  lower-roman,
+  upper-alpha,
+  upper-latin,
+  upper-roman
 );
 
 // 36. Prototype Overflow
@@ -623,9 +629,9 @@ $prototype-style-type-ordered: (
 
 $prototype-overflow-breakpoints: $global-prototype-breakpoints;
 $prototype-overflow: (
-    visible,
-    hidden,
-    scroll
+  visible,
+  hidden,
+  scroll
 );
 
 // 37. Prototype Position
@@ -633,10 +639,10 @@ $prototype-overflow: (
 
 $prototype-position-breakpoints: $global-prototype-breakpoints;
 $prototype-position: (
-    static,
-    relative,
-    absolute,
-    fixed
+  static,
+  relative,
+  absolute,
+  fixed
 );
 $prototype-position-z-index: 975;
 
@@ -661,21 +667,21 @@ $prototype-separator-margin-top: $global-margin;
 
 $prototype-shadow-breakpoints: $global-prototype-breakpoints;
 $prototype-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),
-0 2px 10px 0 rgba(0,0,0,.12);
+                       0 2px 10px 0 rgba(0,0,0,.12);
 
 // 41. Prototype Sizing
 // --------------------
 
 $prototype-sizing-breakpoints: $global-prototype-breakpoints;
 $prototype-sizing: (
-    width,
-    height
+  width,
+  height
 );
 $prototype-sizes: (
-    25: 25%,
-    50: 50%,
-    75: 75%,
-    100: 100%
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%
 );
 
 // 42. Prototype Spacing
@@ -689,9 +695,9 @@ $prototype-spacers-count: 3;
 
 $prototype-decoration-breakpoints: $global-prototype-breakpoints;
 $prototype-text-decoration: (
-    overline,
-    underline,
-    line-through,
+  overline,
+  underline,
+  line-through,
 );
 
 // 44. Prototype Text-Transformation
@@ -699,9 +705,9 @@ $prototype-text-decoration: (
 
 $prototype-transformation-breakpoints: $global-prototype-breakpoints;
 $prototype-text-transformation: (
-    lowercase,
-    uppercase,
-    capitalize
+  lowercase,
+  uppercase,
+  capitalize
 );
 
 // 45. Prototype Text-Utilities
@@ -715,8 +721,8 @@ $prototype-text-overflow: ellipsis;
 
 $responsive-embed-margin-bottom: rem-calc(16);
 $responsive-embed-ratios: (
-    default: 4 by 3,
-    widescreen: 16 by 9,
+  default: 4 by 3,
+  widescreen: 16 by 9,
 );
 
 // 47. Reveal
@@ -853,11 +859,10 @@ $xy-grid: true;
 $grid-container: $global-width;
 $grid-columns: 12;
 $grid-margin-gutters: (
-    small: 20px,
-    medium: 30px
+  small: 20px,
+  medium: 30px
 );
 $grid-padding-gutters: $grid-margin-gutters;
 $grid-container-padding: $grid-padding-gutters;
 $grid-container-max: $global-width;
-$block-grid-max: 8;
-
+$xy-block-grid-max: 8;
