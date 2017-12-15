@@ -14,6 +14,14 @@
  */
 require get_template_directory() . '/functions/theme-setup.php';
 
+
+/**
+ * HELPER FUNCTIONS
+ *
+ * Various small helper functions.
+ */
+require get_template_directory() . '/functions/helpers.php';
+
 /**
  * SCRIPTS AND STYLES
  *
