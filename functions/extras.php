@@ -37,3 +37,14 @@ function zf_theme_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'zf_theme_pingback_header' );
+
+/**
+ * Prevent IE from going into compatibility mode.
+ */
+function zf_theme_modify_headers( $headers, $wp_class ) {
+	
+	$headers['X-UA-Compatible'] = 'IE=edge,chrome=1';
+
+	return $headers;
+}
+add_filter( 'wp_headers', 'zf_theme_modify_headers', 10, 2 );
