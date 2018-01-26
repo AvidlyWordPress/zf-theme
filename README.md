@@ -57,7 +57,7 @@ Requirements: Node, NPM and Bower. And a local WordPress development server (MAM
 
 Set up a local WordPress development site, and take note of its URL, e.g. 'example.dev'. Drop your theme in the themes directory and activate it. Edit `config.yml` and make sure the BROWSERSYNC options point to the right URL. This is also where you change options regarding which Foundation (and other) JS files should be concatenated, how the autoprefixer works etc.
 
-Run `npm install && bower install` in your theme directory. Go make a cup of tea while this is happening. Then run `npm start` and start developing!
+Run `npm install` in your theme directory. Go make a cup of tea while this is happening. Then run `npm start` and start developing!
 
 ### Compiling assets for production
 
