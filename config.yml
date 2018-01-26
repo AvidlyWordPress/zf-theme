@@ -30,43 +30,11 @@ PATHS:
     - "!_src/assets/{img,js,scss}/**/*"
   # Paths to Sass libraries, which can then be loaded with @import
   sass:
-    - "bower_components/foundation-sites/scss"
-    - "bower_components/motion-ui/src"
+    - "node_modules/foundation-sites/scss"
+    - "node_modules/motion-ui/src"
   # jQuery-related stuff separately, because in production we use built-in WP version
   jquery:
-    - "bower_components/jquery/dist/jquery.js"
-  # Paths to other JavaScript libraries, which are combined into one file
-  javascript:
-    # Libraries requried by Foundation
-    # - "bower_components/jquery/dist/jquery.js"
-    - "bower_components/what-input/dist/what-input.js"
-    # Core Foundation files
-    # - "bower_components/foundation-sites/dist/js/foundation.js"
-    - "bower_components/foundation-sites/dist/js/plugins/foundation.core.js"
-    - "bower_components/foundation-sites/dist/js/plugins/foundation.util.*.js"
-    # Individual Foundation components
-    # If you aren't using a component, just remove it from the list
-    - "bower_components/foundation-sites/dist/js/plugins/foundation.abide.js"
-    - "bower_components/foundation-sites/dist/js/plugins/foundation.accordion.js"
-    - "bower_components/foundation-sites/dist/js/plugins/foundation.accordionMenu.js"
-    - "bower_components/foundation-sites/dist/js/plugins/foundation.drilldown.js"
-    - "bower_components/foundation-sites/dist/js/plugins/foundation.dropdown.js"
-    - "bower_components/foundation-sites/dist/js/plugins/foundation.dropdownMenu.js"
-    - "bower_components/foundation-sites/dist/js/plugins/foundation.equalizer.js"
-    - "bower_components/foundation-sites/dist/js/plugins/foundation.interchange.js"
-    - "bower_components/foundation-sites/dist/js/plugins/foundation.smoothScroll.js"
-    - "bower_components/foundation-sites/dist/js/plugins/foundation.magellan.js"
-    - "bower_components/foundation-sites/dist/js/plugins/foundation.offcanvas.js"
-    - "bower_components/foundation-sites/dist/js/plugins/foundation.orbit.js"
-    - "bower_components/foundation-sites/dist/js/plugins/foundation.responsiveMenu.js"
-    - "bower_components/foundation-sites/dist/js/plugins/foundation.responsiveToggle.js"
-    - "bower_components/foundation-sites/dist/js/plugins/foundation.reveal.js"
-    - "bower_components/foundation-sites/dist/js/plugins/foundation.slider.js"
-    - "bower_components/foundation-sites/dist/js/plugins/foundation.sticky.js"
-    - "bower_components/foundation-sites/dist/js/plugins/foundation.tabs.js"
-    - "bower_components/foundation-sites/dist/js/plugins/foundation.toggler.js"
-    - "bower_components/foundation-sites/dist/js/plugins/foundation.tooltip.js"
-    - "bower_components/foundation-sites/dist/js/plugins/foundation.zf.responsiveAccordionTabs.js"
-    # Paths to your own project code are here
-    - "_src/assets/js/!(app).js"
+   - "node_modules/jquery/dist/jquery.js"
+  # Paths to JavaScript entry points for webpack to bundle modules
+  entries:
     - "_src/assets/js/app.js"
