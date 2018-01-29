@@ -1,14 +1,15 @@
-(function(window, document, $, undefined){
+// jQuery is configured as a webpack external dependency, see gulpfile.babel.js
+import $ from 'jquery';
+import whatInput from 'what-input';
 
-	'use strict';
+window.$ = $;
 
-	window.zfTheme = {};
+// See lib/foundation-explicit-pieces for including / excluding specific stuff.
+import './lib/foundation-explicit-pieces';
 
-	zfTheme.init = function() {
-		// Foundation
-		$(document).foundation();
-	};
+// Add your own code as separate files (preferably separate files for each feature / component) under js/ and import here
+// e.g.
+// import './my-custom-feature';
 
-	$(document).ready( zfTheme.init );
-
-})(window, document, jQuery);
+// Initialize Foundation
+$(document).foundation();

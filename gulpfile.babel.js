@@ -107,6 +107,9 @@ function jquery() {
 }
 
 let webpackConfig = {
+  externals: {
+    jquery: 'jQuery' // Available and loaded through WordPress.
+  },
   module: {
     rules: [
       {

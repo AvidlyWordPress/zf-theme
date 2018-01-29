@@ -34,7 +34,7 @@ PATHS:
     - "node_modules/motion-ui/src"
   # jQuery-related stuff separately, because in production we use built-in WP version
   jquery:
-   - "node_modules/jquery/dist/jquery.js"
+    - "node_modules/jquery/dist/jquery.js"
   # Paths to JavaScript entry points for webpack to bundle modules
   entries:
     - "_src/assets/js/app.js"
