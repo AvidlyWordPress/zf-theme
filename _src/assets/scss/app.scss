@@ -12,7 +12,7 @@
 // @include foundation-grid;
 // @include foundation-flex-grid;
 //
-@include foundation-xy-grid-classes;
+@include foundation-xy-grid-classes; // Recommended: comment this out and do it yourself with flexbox + CSS Grid
 @include foundation-typography;
 @include foundation-button;
 @include foundation-forms;
@@ -38,7 +38,7 @@
 @include foundation-pagination;
 @include foundation-progress-bar;
 @include foundation-slider;
-// @include foundation-sticky;
+// @include foundation-sticky; // conflicts with WordPress .sticky class, use with caution.
 @include foundation-reveal;
 @include foundation-switch;
 @include foundation-table;
@@ -72,4 +72,4 @@
 /**
  * Custom components
  */
-// @import "components/component";
+// @import "components/example-component";

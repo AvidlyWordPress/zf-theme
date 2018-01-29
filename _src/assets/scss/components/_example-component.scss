@@ -1,0 +1,28 @@
+//
+// EXAMPLE COMPONENT NAME
+// Short description of where this css code is used.
+//
+// Use BEM (Block - Element - Modifier) naming convention
+//
+// Top level class (Block):
+//
+// 	  .article
+// 
+// Elements (i.e. children of the block)
+//
+//    .article__title
+//
+// Element naming does not need to be hierarchical
+// DON'T DO THIS:
+//
+//    .article__title__suffix
+//
+// Instead e.g. this
+//
+//    .article__title-suffix OR .article__titlesuffix
+//
+// For variations on a block or an element use the Modifier notation, e.g.
+//
+//    .article--small
+//
+//    .cta-button__link--active
