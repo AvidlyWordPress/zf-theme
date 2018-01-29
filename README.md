@@ -11,7 +11,8 @@ Learn more about the Foundation framework by reading the <a href="http://foundat
 * A custom header implementation in `functions/custom-header.php` just add the code snippet found in the comments of `functions/custom-header.php` to your `header.php` template.
 * Custom template tags in `functions/template-tags.php` that keep your templates clean and neat and prevent code duplication.
 * Some small tweaks in `functions/extras.php` that can improve your theming experience.
-* The Foundation Framework (version 6.4) using the Foundation Zurb Template in the `_src` directory. 
+* The Foundation Framework (version 6.4) using the Foundation Zurb Template in the `_src` directory.
+* Webpack / Babel for bundling JS.
 * Licensed under GPLv2 or later. :) Use it to make something cool.
 
 ## Getting Started
@@ -53,7 +54,7 @@ If you have any custom JS, I suggest creating a new file in `dist/assets/js` and
 
 ## Development using Sass, Gulp and Panini templates
 
-Requirements: Node, NPM and Bower. And a local WordPress development server (MAMP, XAMPP, Pressmatic, something else, it's your choice).
+Requirements: Node and NPM. And a local WordPress development server (MAMP, XAMPP, Pressmatic, something else, it's your choice).
 
 Set up a local WordPress development site, and take note of its URL, e.g. 'example.dev'. Drop your theme in the themes directory and activate it. Edit `config.yml` and make sure the BROWSERSYNC options point to the right URL. This is also where you change options regarding which Foundation (and other) JS files should be concatenated, how the autoprefixer works etc.
 
@@ -61,7 +62,28 @@ Run `npm install` in your theme directory. Go make a cup of tea while this is ha
 
 ### Compiling assets for production
 
-Run `npm run build` to compile compressed, production-ready CSS and JS.
+VERY IMPORTANT: Run `npm run build` to compile compressed, production-ready CSS and JS, or make sure your deployment process does this for you. Otherwise you'll end up with ridiculously large CSS and JS files and your clients will call you on a Saturday evening when you're trying to enjoy a beer with your friends.
+
+## Including / Excluding JavaScript
+
+The main entry point to the theme JavaScript is in `_src/assets/js/app.js`. Adding your own code follows similar logic to SCSS files:
+
+### Customize which Foundation plugins you want
+
+You probably only want a subset of Foundation for your project. To prevent a module from being loaded, open `_src/assets/js/lib/foundation-explicit-pieces` in your text editor and comment out both the import line at the top and the initialization line at the end of the file. For example, if you don't need the AccordionMenu component, comment out this:
+```
+import { AccordionMenu } from 'foundation-sites/js/foundation.accordionMenu';
+```
+and this:
+```
+Foundation.plugin(AccordionMenu, 'AccordionMenu');
+```
+
+### Adding custom JavaScript
+
+* Create a new file for each feature inside `_src/assets/js/app.js`.
+* Import it into app.js like so `import './my-custom-feature';` and use ES6 imports to add the required depencies such as jQuery (see app.js for an example.
+* You can also add completely separate JS files to be copied as-is into `_src/assets/wp-js`. Do this if you only want to conditionally load them in WordPress based on page etc.
 
 ### Developing HTML mockups without a WordPress installation
 
@@ -71,4 +93,8 @@ Read more about the Panini template language in the <a href="http://foundation.z
 
 ### Styleguides!
 
-You can build a styleguide within your theme in `_src/styleguide/`, extremely handy when passing on development to new theme members. <a href="http://foundation.zurb.com/sites/docs/style-sherpa.html">Instructions for how to edit the styleguide on the Foundation site</a>. The BROWSERSYNC value in `config.yml` needs to be set to `html` and you can view your guide at `localhost:8000/styleguide.html`. 
+You can build a styleguide within your theme in `_src/styleguide/`, extremely handy when passing on development to new theme members. <a href="http://foundation.zurb.com/sites/docs/style-sherpa.html">Instructions for how to edit the styleguide on the Foundation site</a>. The BROWSERSYNC value in `config.yml` needs to be set to `html` and you can view your guide at `localhost:8000/styleguide.html`.
+
+## Additional resources
+
+* For a very comprehensive explanation of the Foundation Zurb template structure, see https://zendev.com/2017/09/05/front-end-development-kickstarter-zurb-template.html
