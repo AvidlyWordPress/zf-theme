@@ -1,8 +1,8 @@
 <?php
 /**
- * Template part for displaying page content in page.php.
+ * Template part for displaying page content in page.php
  *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package ZF_Theme
  */
@@ -13,6 +13,8 @@
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
+
+	<?php zf_theme_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php
@@ -30,9 +32,16 @@
 			<?php
 				edit_post_link(
 					sprintf(
-						/* translators: %s: Name of current post */
-						esc_html__( 'Edit %s', 'zf-theme' ),
-						the_title( '<span class="screen-reader-text">"', '"</span>', false )
+						wp_kses(
+							/* translators: %s: Name of current post. Only visible to screen readers */
+							__( 'Edit <span class="screen-reader-text">%s</span>', 'zf-theme' ),
+							array(
+								'span' => array(
+									'class' => array(),
+								),
+							)
+						),
+						get_the_title()
 					),
 					'<span class="edit-link">',
 					'</span>'
@@ -40,4 +49,4 @@
 			?>
 		</footer><!-- .entry-footer -->
 	<?php endif; ?>
-</article><!-- #post-## -->
+</article><!-- #post-<?php the_ID(); ?> -->

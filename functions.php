@@ -66,9 +66,9 @@ require get_template_directory() . '/functions/template-tags.php';
 /**
  * EXTRA FILTERS AND TWEAKS
  *
- * Custom functions that act independently of the theme templates.
+ * Functions which enhance the theme by hooking into WordPress.
  */
-require get_template_directory() . '/functions/extras.php';
+require get_template_directory() . '/functions/template-functions.php';
 
 /**
  * CUSTOMIZER
@@ -82,4 +82,6 @@ require get_template_directory() . '/functions/customizer.php';
  *
  * Load Jetpack compatibility file.
  */
-require get_template_directory() . '/functions/jetpack.php';
+if ( defined( 'JETPACK__VERSION' ) ) {
+	require get_template_directory() . '/functions/jetpack.php';
+}
