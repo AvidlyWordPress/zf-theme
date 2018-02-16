@@ -176,6 +176,9 @@ function reload(done) {
 function watch() {
   gulp.watch(PATHS.assets, copy);
   gulp.watch('_src/pages/**/*.html').on('all', gulp.series(pages, browser.reload));
+  if ( BROWSERSYNC.type == 'wordpress' ) {
+    gulp.watch('**/*.php').on('all', gulp.series(browser.reload));
+  }
   gulp.watch('_src/{layouts,partials}/**/*.html').on('all', gulp.series(resetPages, pages, browser.reload));
   gulp.watch('_src/assets/scss/**/*.scss').on('all', sass);
   gulp.watch('_src/assets/js/**/*.js').on('all', gulp.series(jquery, javascript, browser.reload));
